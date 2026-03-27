@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 100 52% 20%;
+
+    --card: 40 33% 96%;
+    --card-foreground: 100 52% 20%;
+
+    --popover: 40 33% 96%;
+    --popover-foreground: 100 52% 20%;
+
+    --primary: 100 52% 20%;
+    --primary-foreground: 40 33% 96%;
+
+    --secondary: 27 52% 64%;
+    --secondary-foreground: 40 33% 96%;
+
+    --muted: 35 30% 88%;
+    --muted-foreground: 100 20% 35%;
+
+    --accent: 33 65% 47%;
+    --accent-foreground: 40 33% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 25% 80%;
+    --input: 35 25% 80%;
+    --ring: 33 65% 47%;
+
+    --radius: 0.75rem;
+
+    --forest: 100 52% 20%;
+    --gold: 33 65% 47%;
+    --ivory: 40 33% 96%;
+    --clay: 27 52% 64%;
+
+    --sidebar-background: 100 52% 15%;
+    --sidebar-foreground: 40 33% 96%;
+    --sidebar-primary: 33 65% 47%;
+    --sidebar-primary-foreground: 40 33% 96%;
+    --sidebar-accent: 100 40% 25%;
+    --sidebar-accent-foreground: 40 33% 96%;
+    --sidebar-border: 100 30% 25%;
+    --sidebar-ring: 33 65% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .hover-card-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  .hover-card-lift:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 8px 30px -8px hsl(var(--gold) / 0.35);
+    border-color: hsl(var(--gold) / 0.6);
+  }
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--forest)) 0%,
+      hsl(100 45% 25%) 40%,
+      hsl(80 35% 22%) 70%,
+      hsl(var(--forest)) 100%
+    );
+    background-size: 300% 300%;
+    animation: hero-gradient 12s ease infinite;
+  }
+  .glow-btn {
+    @apply relative overflow-hidden;
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.4), 0 0 60px hsl(var(--gold) / 0.15);
+    transition: box-shadow 0.3s ease;
+  }
+  .glow-btn:hover {
+    box-shadow: 0 0 30px hsl(var(--gold) / 0.6), 0 0 80px hsl(var(--gold) / 0.25);
+  }
+  .leaf-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 C20 15 10 25 15 35 C20 45 30 40 30 40 C30 40 40 45 45 35 C50 25 40 15 30 5Z' fill='none' stroke='%232D5016' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes hero-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
